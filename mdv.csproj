@@ -15,8 +15,8 @@
     <Description>A Terminal.Gui-based Markdown viewer for the terminal.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/gui-cs/mdv</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/gui-cs/mdv</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tui-cs/mdv</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tui-cs/mdv</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>markdown;viewer;terminal;tui;terminal-gui</PackageTags>
   </PropertyGroup>

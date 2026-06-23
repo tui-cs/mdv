@@ -8,7 +8,7 @@ When run with the `--print` option, it renders the markdown to the terminal and 
 
 Wildcards are supported: `mdv *.md`, `mdv docs/*.md`.
 
-Built with [Terminal.Gui](https://gui-cs.github.io/Terminal.Gui/).
+Built with [Terminal.Gui](https://tui-cs.github.io/Terminal.Gui/).
 
 ## Supported Markdown Features
 
