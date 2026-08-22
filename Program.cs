@@ -62,7 +62,10 @@ rootCommand.SetAction (parseResult =>
                                return;
                            }
 
-                           ConfigurationManager.Enable (ConfigLocations.All);
+                           // Terminal.Gui 2.5 dropped ConfigurationManager (tui-cs/Terminal.Gui#5416). Library
+                           // defaults, ~/.tui, ./.tui, and TUI_CONFIG are applied at assembly load via
+                           // TuiConfigurationBuilder.Shared; re-apply explicitly so config is fresh at startup.
+                           new TuiConfigurationBuilder ().ApplyToStaticFacades ();
 
                            if (print)
                            {
@@ -307,7 +310,12 @@ static void RunFullScreen (List<string> files, ThemeName syntaxTheme)
                                                     return;
                                                 }
 
+                                                // TG 2.5 marks GetThemeForBackground [Obsolete] (syntax colors now resolve from
+                                                // ThemeManager.Theme via VisualRole.Code* roles); it still works. Migrating the
+                                                // auto light/dark TextMate theme selection is tracked as follow-up.
+#pragma warning disable CS0618 // Type or member is obsolete
                                                 ThemeName autoTheme = TextMateSyntaxHighlighter.GetThemeForBackground (attr.Background);
+#pragma warning restore CS0618
                                                 markdownView.SyntaxHighlighter = new TextMateSyntaxHighlighter (autoTheme);
                                                 themeDropDown.Value = autoTheme;
                                             };
